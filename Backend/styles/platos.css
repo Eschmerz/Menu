@@ -1,0 +1,172 @@
+/* Reinicio de márgenes y relleno */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo para todo el body */
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    background: url("../imagenes/Background.jpg") center/cover no-repeat;
+    background-color: black;
+    position: relative;
+}
+
+/* Contenedor para la imagen cuadrada */
+.image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tarjeta de información con efecto glass (cristal) */
+.info-card {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 60vh;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(40px);
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-card::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.info-card {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Información del usuario (autor y seguidores) */
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.following {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Título de la receta */
+.recipe-title {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+/* Subtítulo (ej. "Special for breakfast") */
+.subtitle {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Rating y vistas */
+.rating-views {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    font-weight: bold;
+    color: #FFA500;
+}
+
+.views {
+    color: #ffffff;
+}
+
+/* Descripción */
+.description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Bloque de nutrición (opcional) */
+.nutrition {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.nutrient {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.nutrient span {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Contenedor de botones */
+.buttons-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.heart-button,
+#addReviewButton,
+#addToListButton {
+    background-color: #0073ff;
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#addToListButton {
+    background-color: #00a938;
+}
+
+#addReviewButton {
+    background-color: #227eff;
+}
+
+.heart-button:hover,
+#addReviewButton:hover,
+#addToListButton:hover {
+    background-color: #ebebeb;
+    transform: scale(1.05);
+    color: black;
+}
+
+.heart-button:active,
+#addReviewButton:active,
+#addToListButton:active {
+    transform: scale(0.95);
+}

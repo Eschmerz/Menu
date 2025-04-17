@@ -1,0 +1,1221 @@
+/* =================== RESET DE ESTILO GLOBAL =================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =================== ESTILOS GENERALES =================== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background-attachment: fixed;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* =================== CONTENEDOR DE IMAGEN DE FONDO =================== */
+.background-container {
+    position: fixed; /* Fijo para que siempre esté visible */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Enviar al fondo */
+    overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    transform: scale(1.1); /* Escala ligeramente la imagen para evitar bordes visibles */
+    transition: transform 0.5s ease, filter 0.5s ease; /* Transiciones suaves */
+}
+
+/* Efecto de hover opcional para el fondo */
+.background-container:hover .background-image {
+    transform: scale(1.15); /* Aumenta el zoom al pasar el mouse */
+}
+
+/* =================== ENCABEZADO =================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #22222200;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-icon, .search-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-header {
+    background-color: #7851EC;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.menu-header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* =================== FILTRO DE CATEGORÍAS =================== */
+.categorias-recuadros {
+    display: flex;
+    gap: 15px;
+    margin: 20px auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.categorias-recuadro {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.categorias-recuadro:hover {
+    transform: scale(1.1);
+    background-color: #ff9900;
+}
+
+.categorias-recuadro i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.categorias-recuadro span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilo para los íconos de las categorías */
+.categoria-icono {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.categorias-recuadro:hover .categoria-icono {
+    transform: scale(1.1);
+}
+
+/* Slider de categorías */
+.categorias-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    scrollbar-width: thin;
+}
+
+.categorias-slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.categorias-slider::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+/* =================== SECCIÓN DE PLATILLOS =================== */
+.platillos-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta el tamaño mínimo */
+    gap: 1rem; /* Espaciado entre las tarjetas */
+    padding: 20px;
+    justify-items: center; /* Centra las tarjetas horizontalmente */
+}
+
+/* Tarjetas de los platos */
+.tarjeta-platillo {
+    background-color: #00000071;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    max-width: 180px; /* Ajusta el ancho máximo */
+}
+
+.tarjeta-platillo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.imagen-platillo {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.tarjeta-platillo h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.tarjeta-platillo p {
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* =================== SECCIÓN DE MENÚ =================== */
+.menu-section {
+    padding: 1rem;
+    flex: 1;
+}
+
+/* =================== ELEMENTOS DESTACADOS =================== */
+.featured {
+    display: flex;
+    align-items: center;
+    background: rgba(142, 139, 139, 0.134);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.featured img {
+    width: 33%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 1rem;
+    aspect-ratio: 1;
+}
+
+.featured-info h2 {
+    color: #ffd900;
+    font-size: 15px;
+}
+
+.stars {
+    color: #ffd700;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* =================== BARRA DE NAVEGACIÓN =================== */
+.menu-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+    color: #ff9900;
+}
+
+.icon-img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+.icon-img:hover {
+    transform: rotate(10deg);
+}
+
+.menu-nav a {
+    margin: 0 5px;
+}
+
+.menu-nav::-webkit-scrollbar {
+    height: 8px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* =================== SECCIÓN DE TARJETAS =================== */
+.Tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(50% - 1rem);
+    color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: left;
+    box-sizing: border-box;
+    background: rgba(142, 139, 139, 0.134);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    aspect-ratio: 1;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+p {
+    font-size: 14px;
+}
+
+/* =================== FOOTER =================== */
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 80%;
+    max-width: 100%;
+    background-color: #ffffff16;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.icon-img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, filter 0.3s ease;
+    filter: invert(1);
+}
+
+.nav-item.expanded .icon-img {
+    width: 40px;
+    height: 40px;
+    transform: translateX(10px);
+    filter: invert(1);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-item i {
+    font-size: 2rem;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.section-name {
+    font-size: 1rem;
+    color: #fff;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-10px);
+}
+
+.nav-item.expanded {
+    transform: scale(1.2);
+}
+
+.section-name.show-section {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-item.expanded i {
+    font-size: 2.5rem;
+    transform: translateX(10px);
+}
+
+/* =================== RESPONSIVE DESIGN =================== */
+@media (max-width: 768px) {
+    .platillos-section {
+        grid-template-columns: repeat(2, 1fr); /* 2 tarjetas por fila */
+        gap: 10px; /* Reduce el espaciado entre tarjetas */
+    }
+
+    .tarjeta-platillo {
+        max-width: 100%; /* Asegúrate de que las tarjetas ocupen el espacio disponible */
+    }
+
+    .imagen-platillo {
+        height: 120px; /* Reduce la altura de las imágenes */
+    }
+
+    .tarjeta-platillo h3 {
+        font-size: 1rem; /* Reduce el tamaño del título */
+    }
+
+    .tarjeta-platillo p {
+        font-size: 0.8rem; /* Reduce el tamaño del texto */
+    }
+
+    .categorias-recuadro {
+        width: 80px;
+        height: 80px;
+        background-color: #00000000;
+    }
+
+    .categorias-recuadro i {
+        font-size: 1.5rem;
+    }
+
+    .categorias-recuadro span {
+        font-size: 0.8rem;
+    }
+
+    .tarjeta-platillo {
+        max-width: 180px;
+        padding: 10px;
+        width: calc(100% - 1rem);
+    }
+
+    .imagen-platillo {
+        height: 120px;
+    }
+
+    .tarjeta-platillo h3 {
+        font-size: 1rem;
+    }
+
+    .tarjeta-platillo p {
+        font-size: 0.8rem;
+    }
+
+    .tarjeta-platillo .precio {
+        font-size: 0.9rem;
+    }
+
+    .menu-nav {
+        flex-wrap: wrap;
+    }
+
+    .video-slider {
+        height: 50vh;
+    }
+
+    .search-bar {
+        width: 95%;
+    }
+
+    #search-input {
+        font-size: 0.9rem;
+    }
+
+    #search-button {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
+
+/* Estilo para la barra de búsqueda */
+.search-bar {
+    margin: 1rem auto;
+    text-align: center;
+}
+
+#search-input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Estilo para el contenedor de la barra de búsqueda */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem auto;
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Estilo para el campo de entrada */
+#search-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    border-radius: 30px 0 0 30px;
+}
+
+/* Estilo para el botón de búsqueda */
+#search-button {
+    background-color: #5B3CC4;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 30px 30px 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Icono dentro del botón */
+#search-button i {
+    font-size: 1.2rem;
+}
+
+/* Efecto hover para el botón */
+#search-button:hover {
+    background-color: #7851EC;
+    transform: scale(1.05);
+}
+
+/* Efecto focus para el campo de entrada */
+#search-input:focus {
+    background-color: #f9f9f9;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #e74c3c;
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-card {
+    padding: 20px;
+    text-align: center;
+}
+
+.chef-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.chef-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    border: 2px solid #ffd700; /* Borde dorado */
+}
+
+.chef-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.recipe-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.rating-views {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.stars {
+    font-size: 1.2rem;
+    color: #ffd700;
+}
+
+.description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.nutrition {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.nutrient {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.nutrient span {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.open-maps-button,
+#shareStoryButton {
+    background-color: #0073ff;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#shareStoryButton {
+    background-color: #e1306c; /* Color de Instagram */
+}
+
+.open-maps-button:hover,
+#shareStoryButton:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+/* ================================
+    Estilos para el slider de videos
+    ================================ */
+.video-slider {
+    position: relative;
+     width: 95%; /* Ajusta el ancho al 95% */
+     height: 80vh; /* Reduce la altura del slider */
+    overflow: hidden;
+     margin: 0 auto 30px auto; /* Centra el slider horizontalmente y agrega margen inferior */
+     padding: 0 1rem; /* Ajusta el padding para mantener el contenido dentro del contenedor */
+     border-radius: 20px; /* Bordes redondeados */
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
+}
+
+.video-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.video-slide.active {
+     opacity: 1;
+     pointer-events: auto;
+}
+
+.video-slide video {
+     width: 100%;
+     height: 100%;
+     object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+     border-radius: 20px; /* Bordes redondeados para el video */
+}
+
+/* Overlay para el video */
+.video-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)); /* Degradado para mejorar la legibilidad */
+     color: #fff;
+     padding: 20px;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+/* Sección superior del overlay */
+.video-overlay h3 {
+     font-size: 2rem;
+     font-weight: bold;
+     margin-bottom: 0.5rem;
+     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+}
+
+.video-overlay p {
+     font-size: 1rem;
+     line-height: 1.4;
+}
+
+/* Información del chef */
+.chef-info {
+     display: flex;
+     align-items: center;
+     margin-top: 1em;
+     background: rgba(0, 0, 0, 0.5); /* Fondo oscuro para destacar la información */
+     padding: 10px;
+     border-radius: 50px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para la tarjeta */
+}
+
+.chef-photo {
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     margin-right: 15px;
+     object-fit: cover;
+     border: 2px solid #ffd700; /* Borde dorado para destacar */
+}
+
+.chef-details {
+     display: flex;
+     flex-direction: column;
+}
+
+.chef-details p {
+     margin: 0;
+     font-size: 0.9rem;
+     line-height: 1.2;
+     color: #fff;
+}
+
+.chef-details p:first-child {
+     font-weight: bold;
+     font-size: 1rem;
+}
+
+.chef-details p:last-child {
+     font-style: italic;
+     color: #ffd700; /* Color dorado para la especialidad */
+}
+
+/* Indicadores del slider */
+.video-pagination {
+     position: absolute;
+     bottom: 20px;
+     right: 20px;
+     display: flex;
+     gap: 5px;
+     z-index: 10;
+}
+
+.video-pagination .dot {
+     width: 12px;
+     height: 12px;
+     background: #fff;
+     border-radius: 50%;
+     opacity: 0.5;
+     cursor: pointer;
+     transition: opacity 0.3s;
+}
+
+.video-pagination .dot.active {
+     opacity: 1;
+}
+
+/* Botones de navegación del slider */
+.slider-nav {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     background: rgba(0, 0, 0, 0.5);
+     border: none;
+     color: #fff;
+     font-size: 2em;
+     padding: 10px;
+     cursor: pointer;
+     z-index: 10;
+     border-radius: 50%;
+     transition: background 0.3s;
+}
+
+.slider-nav:hover {
+     background: rgba(255, 255, 255, 0.3);
+}
+
+.slider-nav.prev {
+     left: 20px;
+}
+
+.slider-nav.next {
+     right: 20px;
+}
+
+/* =================== RECOMENDACIONES =================== */
+.recomendaciones-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tarjeta-recomendacion {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-recomendacion:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-recomendacion {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.tarjeta-recomendacion h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tarjeta-recomendacion p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.tarjeta-recomendacion .precio {
+    font-weight: bold;
+    color: #5B3CC4;
+}
+
+/* =================== MENÚ RECOMENDACIONES =================== */
+.menu-recomendaciones-section {
+    padding: 10px;
+    background-color: #f9f9f900;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.menu-recomendaciones-section h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+.menu-recomendaciones-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px; /* Altura fija para mantener el diseño consistente */
+    overflow: hidden;
+}
+
+.tarjeta-recomendacion-menu {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-recomendacion-menu:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-recomendacion-menu {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.tarjeta-recomendacion-menu h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tarjeta-recomendacion-menu p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.tarjeta-recomendacion-menu .precio {
+    font-weight: bold;
+    color: #5B3CC4;
+}
+
+/* =================== RECOMENDACIONES HORIZONTALES =================== */
+.tarjeta-recomendacion-horizontal {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-recomendacion-horizontal:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contenido-recomendacion {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    color: #fff;
+    border-radius: 0 0 15px 15px;
+    text-align: left;
+}
+
+.contenido-recomendacion h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contenido-recomendacion p {
+    font-size: 1rem;
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    background-color: #000000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001;
+}
+
+/* Contenedor de la imagen del plato */
+.image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sección con efecto blur encima de la imagen */
+.info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chef-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffd700; /* Borde dorado */
+}
+
+.chef-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+/* Tarjeta con información del plato */
+.info-card {
+    padding: 20px;
+    text-align: center;
+}
+
+.recipe-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.rating-views {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.stars {
+    font-size: 1.2rem;
+    color: #ffd700;
+}
+
+.description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.nutrition {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.nutrient {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.nutrient span {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.open-maps-button,
+#shareStoryButton {
+    background-color: #0073ff;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#shareStoryButton {
+    background-color: #e1306c; /* Color de Instagram */
+}
+
+.open-maps-button:hover,
+#shareStoryButton:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.modal-imagen {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-precio {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5B3CC4;
+}

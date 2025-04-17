@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/Backend/styles/menu.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/Backend/src/logo {N}.png">
+
+</head>
+<body>
+    <!-- Header con el logo y el nombre del local -->
+    <header class="header">
+        <div class="logo-container">
+            <h1 class="local-name"></h1>
+        </div>
+    </header>
+
+    <!-- Contenedor de fondo -->
+    <div class="background-container">
+        <div class="background-image"></div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <main class="main-content">
+            <!-- Slider de Videos -->
+            <div class="video-slider">
+                <div class="video-slide active">
+                    <video autoplay loop muted playsinline>
+                        <source src="" type="video/mp4"> <!-- La URL se actualizará dinámicamente -->
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                    <div class="video-overlay">
+                        <h3 class="Portada"></h3>
+                        <div class="chef-info">
+                            <img src="" alt="Chef" class="chef-photo"> <!-- La URL se actualizará dinámicamente -->
+                            <div class="chef-details">
+                                <p>Chef: Brayan Navarro</p>
+                                <p>Especialidad: Todo tipo de comida</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de recomendaciones del menú -->
+            <section id="menu-recomendaciones" class="menu-recomendaciones-section">
+                <h2>Recomendaciones de la Casa</h2>
+                <div id="menu-recomendaciones-container" class="menu-recomendaciones-container">
+                    <!-- Las recomendaciones del menú se generarán dinámicamente -->
+                </div>
+            </section>
+
+
+            <!-- Barra de navegación del menú -->
+            <nav class="menu-nav">
+                <!-- Categorías dinámicas -->
+                <div id="categorias-recuadros" class="categorias-recuadros">
+                    <!-- Las categorías se generarán dinámicamente -->
+                </div>
+                    <!-- Agrega más categorías según sea necesario -->
+                </div>
+            </nav>
+
+
+
+            <!-- Agregar un buscador encima de las tarjetas -->
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar platillos..." oninput="buscarPlatillos()">
+            </div>
+
+            <!-- Tarjetas de platillos -->
+            <div class="Tarjetas" id="contenedor-platillos">
+                <!-- Los platillos se generarán dinámicamente -->
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modal para detalles del platillo -->
+    <div id="modal-platillo" class="modal">
+        <div class="modal-content">
+            <span id="cerrar-modal" class="close-button">&times;</span>
+            <!-- Contenedor de la imagen del plato -->
+            <div class="image-container">
+                <img id="modal-imagen" src="" alt="Imagen del Platillo" class="background-image" />
+                <!-- Sección con efecto blur encima de la imagen -->
+                <div class="info-overlay">
+                    <div class="chef-info">
+                        <img id="modal-chef-imagen" src="" alt="Chef" class="chef-photo" />
+                        <div class="chef-details">
+                            <p id="modal-chef-nombre" class="chef-name"></p>
+                            <p id="modal-chef-especialidad" class="chef-specialty"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tarjeta con información del plato -->
+            <section class="info-card">
+                <h2 id="modal-nombre" class="recipe-title"></h2>
+                <p id="modal-subtitulo" class="subtitle">Especial para cualquier ocasión</p>
+                <div class="rating-views">
+                    <span class="stars">4.5 ★</span>
+                    <span class="views" id="ordersCount">+99 Pedidos</span>
+                </div>
+                <p id="modal-descripcion" class="description"></p>
+                <p style="text-align: center; color: rgb(172, 172, 172); margin-bottom: 10px;">
+                    Información nutrimental aproximada (por porción)
+                </p>
+                <div class="nutrition">
+                    <div class="nutrient" id="modal-kcal">120<br><span>Kcal</span></div>
+                    <div class="nutrient" id="modal-carbs">50<br><span>Carbs</span></div>
+                    <div class="nutrient" id="modal-protein">5<br><span>Protein</span></div>
+                    <div class="nutrient" id="modal-fat">20<br><span>Fibra</span></div>
+                </div>
+                <div class="buttons-container">
+                    <button class="open-maps-button" id="addReviewButton">Agregar Reseña</button>
+                    <button id="shareStoryButton">Subir Historia a IG</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <script type="module" src="/Backend/Menu/menu.js"></script>
+</body>
+</html>

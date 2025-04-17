@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-end; /* Alinear el login a la derecha */
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('/Backend/src/login/ChatGPT\ Image\ 5\ abr\ 2025\,\ 08_40_22\ p.m..jpg') no-repeat center center fixed; /* Imagen de fondo */
+    background-size: cover;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.25); /* Fondo semitransparente para efecto cristal */
+    backdrop-filter: blur(12px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(12px); /* Compatibilidad con Safari */
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    text-align: center;
+    width: 350px;
+    margin-right: 80px; /* Separar el login del borde derecho */
+}
+
+.container h1 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center; /* Centrar el texto */
+}
+
+.container img {
+    width: 100px;
+    margin: 0 auto 20px auto; /* Centrar la imagen */
+    display: block;
+}
+
+input {
+    display: block;
+    width: calc(100% - 24px); /* Ajustar al padding del contenedor */
+    margin: 15px auto;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Bordes semitransparentes */
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15); /* Fondo semitransparente */
+    color: white;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Placeholder semitransparente */
+}
+
+button {
+    padding: 12px;
+    width: calc(100% - 24px); /* Ajustar al padding del contenedor */
+    margin: 15px auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: block;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.5); /* Cambiar fondo al pasar el mouse */
+    transform: scale(1.05); /* Efecto de zoom */
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+#googleLoginBtn {
+    padding: 12px;
+    width: calc(100% - 24px);
+    margin: 15px auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: #4285F4; /* Color de Google */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: block;
+}
+
+#googleLoginBtn:hover {
+    background: #357AE8; /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de zoom */
+}

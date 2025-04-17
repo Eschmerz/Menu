@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="/Backend/styles/dashboard.css">
+        <!-- Incluye Font Awesome para los iconos -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/Backend/src/logo {N}.png">
+
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Logo del local -->
+                <div class="logo">
+                    <img src="/Backend/src/dashboard/pngtree-food-truck-png-image_8621390.png" alt="Logo del Local">
+                </div>
+
+                <!-- Opciones del menú -->
+                <ul>
+                    <li id="campanasBtn">
+                        <i class="fas fa-bullhorn"></i> Campañas
+                    </li>
+                    <li id="gestionBtn">
+                        <i class="fas fa-cogs"></i> Gestión
+                    </li>
+                    <li id="platosBtn">
+                        <i class="fas fa-utensils"></i> Platos
+                    </li>
+                    <li id="reservasBtn">
+                        <i class="fas fa-calendar-alt"></i> Reservas
+                    </li>
+                </ul>
+
+                <!-- Botón de cerrar sesión -->
+                <div class="logout" id="cerrarSesionBtn">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </div>
+            </aside>
+
+            <!-- Contenido principal -->
+            <main class="main-content">
+                <div id="contenido">
+                    <!-- Aquí se inyectará dinámicamente el contenido del dashboard -->
+                    <div class="gestion-layout">
+                        <div id="gestion-options" class="gestion-options">
+                            <button data-form="agregar-plato">Agregar Platillo</button>
+                            <button data-form="agregar-chef">Agregar Chef</button>
+                            <button data-form="agregar-categoria">Agregar Categoría</button>
+                            <button data-form="agregar-wallpaper">Configurar Wallpaper</button>
+                            <button data-form="agregar-video">Agregar Video de Presentación</button>
+                            <button data-form="agregar-redes">Configurar Redes Sociales</button>
+                            <button data-form="generar-qr-menu">Generar QR del Menú</button>
+                        </div>
+                        <div id="formulario-gestion" class="formulario">
+                            <!-- Aquí se inyectarán los formularios dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Contenedor para mostrar la lista de chefs -->
+        <div id="chefListContainer" class="list-container" style="display: none;">
+            <h3>Lista de Chefs</h3>
+            <div id="chefList" class="tarjetas-container">
+                <!-- Las tarjetas de chefs se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar la lista de categorías -->
+        <div id="categoryListContainer" class="list-container" style="display: none;">
+            <h3>Lista de Categorías</h3>
+            <div id="categoryList" class="tarjetas-container">
+                <!-- Las tarjetas de categorías se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar las reservas -->
+        <div id="reservasContainer" class="list-container" style="display: none;">
+            <h3>Lista de Reservas</h3>
+            <div id="lista-reservas" class="tarjetas-container">
+                <!-- Las tarjetas de reservas se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar las campañas -->
+        <div id="campanasContainer" class="list-container" style="display: none;">
+            <h3>Campañas</h3>
+            <div id="contenedor-campanas" class="tarjetas-container">
+                <!-- Las tarjetas de campañas se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar los wallpapers -->
+        <div id="wallpapersContainer" class="list-container" style="display: none;">
+            <h3>Wallpapers</h3>
+            <div id="contenedor-wallpapers" class="tarjetas-container">
+                <!-- Las tarjetas de wallpapers se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar los videos -->
+        <div id="videosContainer" class="list-container" style="display: none;">
+            <h3>Videos de Presentación</h3>
+            <div id="contenedor-videos" class="tarjetas-container">
+                <!-- Las tarjetas de videos se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar las redes sociales -->
+        <div id="redesContainer" class="list-container" style="display: none;">
+            <h3>Redes Sociales</h3>
+            <div id="contenedor-redes" class="tarjetas-container">
+                <!-- Las tarjetas de redes sociales se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar el código QR -->
+        <div id="qrCodeContainer" class="qr-code-container">
+            <!-- Aquí se generará el QR dinámicamente -->
+        </div>
+        <!-- Script del dashboard -->
+        <script type="module" src="/Backend/dashboard/dashboard.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    </body>
+</html>

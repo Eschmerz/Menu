@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{N}avadez</title>
+    <link rel="stylesheet" href="/Backend/styles/login.css">
+    <link rel="icon" type="image/png" href="/Backend/src/logo {N}.png">
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>inicia Sesion en {N}avadez</h2>
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button id="loginBtn">Iniciar Sesión</button>
+        <button id="googleLoginBtn">Iniciar sesión con Google</button>
+        <p id="status"></p>
+    </div>
+
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+    <script type="module" src="/Backend/firebase/script.js"></script>
+
+</body>
+</html>

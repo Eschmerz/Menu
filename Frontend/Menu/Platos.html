@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover">
+    <title>Detalles del Plato</title>
+    <link rel="stylesheet" href="/Backend/styles/platos.css">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" type="image/png" href="/Backend/src/logo {N}.png">
+
+</head>
+<body>
+    <!-- Contenedor principal para la imagen cuadrada -->
+    <div class="image-container">
+        <img id="dish-image" src="" alt="Imagen del Plato" class="background-image">
+    </div>
+
+    <!-- Tarjeta con información (deslizable) -->
+    <section class="info-card">
+        <!-- Bloque de autor/seguidores -->
+        <div class="user-info">
+            <span class="user-name">
+                <img id="chef-image" src="" alt="Chef" class="user-avatar" style="border-radius: 50%; width: 40px; height: 40px; vertical-align: middle;">
+                <span style="vertical-align: middle;">Chef: <span id="chef-name">Nombre del Chef</span></span>
+            </span>
+            <span class="following" id="likesCount">+99 Me gusta</span>
+        </div>
+
+        <!-- Título de la receta, subtítulo, rating, etc. -->
+        <h2 class="recipe-title" id="dish-name">Nombre del Plato</h2>
+        <p class="subtitle" id="dish-subtitle">Subtítulo del Plato</p>
+        
+        <div class="rating-views">
+            <span class="stars">4.5 ★</span>
+            <span class="views" id="ordersCount">+99 Pedidos</span>
+        </div>
+
+        <!-- Descripción de la receta -->
+        <p class="description" id="dish-description">Descripción del plato</p>
+        <p style="text-align: center; color: rgb(172, 172, 172); margin-bottom: 10px;">
+            Información nutrimental aproximada (por porción)
+        </p>
+        <!-- Datos nutricionales -->
+        <div class="nutrition">
+            <div class="nutrient" id="dish-kcal">0<br><span>Kcal</span></div>
+            <div class="nutrient" id="dish-carbs">0<br><span>Carbs</span></div>
+            <div class="nutrient" id="dish-protein">0<br><span>Protein</span></div>
+            <div class="nutrient" id="dish-fat">0<br><span>Fibra</span></div>
+        </div>
+
+        <!-- Botones de interacción -->
+        <div class="buttons-container">
+            <div class="social-buttons">
+                <button id="addReviewButton" class="btn btn-primary">Agregar Reseña</button>
+                <button id="addToListButton" class="btn btn-secondary">Sube una Storie</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="/Backend/Menu/dish-details.js" type="module"></script>    
+</body>
+</html>

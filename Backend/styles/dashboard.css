@@ -1,0 +1,1922 @@
+/* =================== FUENTES =================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* =================== RESET & LAYOUT BASE =================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #5B3CC4; /* Fondo claro para el dashboard */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* evita scroll en body */
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #5B3CC4; /* Color principal */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* =================== CONTENEDOR PRINCIPAL FLEX =================== */
+.container {
+    display: flex;
+    height: 100vh;     /* toda la altura de la ventana */
+    width: 100%;
+    overflow: hidden;
+}
+
+/* =================== ESTILOS DEL SIDEBAR =================== */
+.sidebar {
+    width: 260px;      /* ancho fijo */
+    flex-shrink: 0;    /* no se encoge */
+    background-color: #5B3CC4;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo en la parte superior */
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px; /* Opcional: bordes redondeados */
+    margin: 0 auto 20px;
+    display: block;
+}
+
+/* Lista de opciones con iconos */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar ul li i {
+    margin-right: 10px; /* Espaciado entre el icono y el texto */
+    font-size: 1.2rem;  /* Tamaño del icono */
+}
+
+.sidebar ul li:hover {
+    background-color: #7851EC;
+    transform: translateX(5px);
+}
+
+.sidebar ul li.active {
+    background-color: #ffffff;
+    color: #5B3CC4;
+    font-weight: bold;
+    transform: translateX(5px);
+}
+
+/* Botón de cerrar sesión en la parte inferior */
+.sidebar .logout {
+    margin-top: auto;
+    padding: 15px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .logout:hover {
+    background-color: #c0392b;
+}
+
+/* Mantener la opción seleccionada en blanco */
+.sidebar ul li.active {
+    background-color: #ffffff;
+    color: black;
+    font-weight: bold; /* opcional: resaltar texto */
+}
+
+.sidebar .go-pro {
+    background-color: #fff;
+    color: #5B3CC4;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+.sidebar .go-pro button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ffaf5f;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =================== CONTENIDO PRINCIPAL =================== */
+.main-content {
+    flex: 1; /* Ocupa todo el espacio restante */
+    background-color: #5B3CC4;
+    overflow-y: auto; /* Permite desplazamiento vertical */
+    display: flex;
+    padding: 20px; /* Espaciado interno */
+    border-radius: 20px;
+}
+
+/* =================== CONTENEDOR DE CONTENIDO =================== */
+#contenido {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 30px; /* Espaciado interno */
+    overflow-y: auto; /* Permite desplazamiento vertical */
+    max-height: 100%; /* Asegura que no exceda la altura disponible */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+#contenido:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+/* =================== FORMULARIOS Y LISTAS =================== */
+.formulario,
+.list-container {
+    overflow-y: auto; /* Permite desplazamiento interno */
+    max-height: calc(100vh - 150px); /* Ajusta la altura máxima para que no exceda la pantalla */
+}
+
+/* =================== FORMULARIO =================== */
+.formulario {
+    margin-top: 1.25rem;
+}
+.formulario input,
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    border: 1px solid var(--clr-form-border);
+    border-radius: var(--radius);
+    background-color: var(--clr-form-bg);
+    transition: border-color var(--trans), box-shadow var(--trans);
+}
+.formulario input:focus,
+.formulario textarea:focus,
+.formulario select:focus {
+    outline: none;
+    border-color: var(--clr-btn-primary);
+    box-shadow: 0 0 0 3px rgba(91, 60, 196, 0.2);
+}
+.formulario button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--clr-btn-primary);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--trans), transform var(--trans);
+}
+.formulario button:hover {
+    background-color: var(--clr-btn-primary-hover);
+    transform: translateY(-2px);
+}
+.formulario button:active {
+    transform: translateY(0);
+}
+
+/* Contenedor del formulario */
+#formulario-container {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block; /* Asegúrate de que sea visible */
+}
+
+/* Asegúrate de que los formularios sean visibles */
+#formulario-gestion {
+    display: block;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los botones dentro de los formularios */
+#formulario-gestion button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#formulario-gestion button[type="submit"]:hover {
+    background-color: #7851EC;
+}
+
+/* =================== MODAL =================== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: var(--clr-modal-overlay);
+    overflow-y: auto;
+    padding-top: 3.75rem;
+    z-index: 999;
+}
+/* cuando agregues .open en JS, pon .modal.open { display: block; } */
+.modal.open {
+    display: block;
+}
+.modal-content {
+    background-color: var(--clr-modal-bg);
+    margin: 0 auto;
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    width: min(90%, 400px);
+    box-shadow: 0 4px 20px var(--shadow-medium);
+    animation: fadeIn var(--trans) both;
+    position: relative;
+}
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: color var(--trans);
+}
+.close:hover {
+    color: #000;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Estilo general del modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+/* Contenedor de los íconos */
+.iconos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+/* Estilo de los íconos */
+.iconos-container img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.iconos-container img:hover {
+    transform: scale(1.1);
+    border-color: #007bff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Vista previa del ícono seleccionado */
+#iconoPreview img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    margin-top: 10px;
+}
+
+/* =================== TARJETAS DE PLATILLOS =================== */
+.platillos-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Reduce el tamaño mínimo */
+    gap: 1rem; /* Espaciado entre tarjetas */
+    justify-items: center;
+}
+
+/* Tarjetas de los platos */
+.tarjeta-plato {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px;
+    max-width: 150px; /* Más pequeñas */
+    margin: 8px;
+}
+
+.tarjeta-plato img.imagen-plato {
+    width: 100%;
+    height: 100px; /* Más pequeñas */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.tarjeta-plato h3 {
+    font-size: 0.9rem; /* Más pequeño */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.tarjeta-plato p {
+    font-size: 0.75rem; /* Más pequeño */
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.tarjeta-plato button {
+    padding: 5px 10px; /* Más pequeño */
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.75rem; /* Más pequeño */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tarjeta-plato button:hover {
+    background-color: #c0392b;
+}
+
+/* Categorías en la parte superior */
+.categorias-recuadros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.categorias-recuadro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.categorias-recuadro:hover {
+    transform: translateY(-3px);
+    background-color: #7851EC;
+    color: white;
+}
+
+.categorias-recuadro span {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Tarjetas de los platos en la sección de Campañas */
+.tarjeta-plato {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 10px; /* Bordes más pequeños */
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 200px; /* Reduce el ancho máximo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px; /* Reduce el padding */
+    margin: 10px; /* Espaciado entre tarjetas */
+}
+
+.tarjeta-plato:hover {
+    transform: translateY(-3px); /* Menor elevación al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-plato img.imagen-plato {
+    width: 100%;
+    height: 120px; /* Reduce la altura de la imagen */
+    object-fit: cover;
+    border-radius: 8px; /* Bordes más pequeños */
+    margin-bottom: 8px; /* Reduce el margen inferior */
+}
+
+.tarjeta-plato h3 {
+    font-size: 1rem; /* Reduce el tamaño del título */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px; /* Reduce el margen inferior */
+}
+
+.tarjeta-plato p {
+    font-size: 0.8rem; /* Reduce el tamaño del texto */
+    color: #666;
+    margin-bottom: 5px; /* Reduce el margen inferior */
+}
+
+.tarjeta-plato input[type="checkbox"] {
+    position: absolute;
+    top: 8px; /* Ajusta la posición del checkbox */
+    right: 8px;
+    transform: scale(1.2); /* Ajusta el tamaño del checkbox */
+    cursor: pointer;
+}
+
+/* Tarjetas de campañas existentes */
+.tarjeta-campana {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 250px; /* Limita el ancho máximo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    margin: 10px; /* Espaciado entre tarjetas */
+}
+
+.tarjeta-campana:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Título de la campaña */
+.tarjeta-campana h3 {
+    font-size: 1.2rem; /* Tamaño del título */
+    margin: 10px 0;
+    color: #333;
+    line-height: 1.2;
+    max-height: 2.4em; /* Limita a 2 líneas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2; /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
+}
+
+/* Lista de platos en la campaña */
+.tarjeta-campana ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+    width: 100%;
+}
+
+.tarjeta-campana ul li {
+    font-size: 0.9rem; /* Tamaño del texto */
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Botón de eliminar campaña */
+.tarjeta-campana .eliminar-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tarjeta-campana .eliminar-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.tarjeta-campana .eliminar-btn:active {
+    transform: translateY(0);
+}
+
+/* Tarjetas de campañas existentes */
+.tarjeta-campana {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+}
+
+.tarjeta-campana:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta-campana h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tarjeta-campana ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.tarjeta-campana ul li {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.tarjeta-campana .eliminar-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-campana .eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Contenedor de campañas existentes */
+.lista-campanas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Formulario de campañas */
+#form-campana {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+#form-campana input,
+#form-campana select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#form-campana button {
+    padding: 10px 20px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#form-campana button:hover {
+    background-color: #7851EC;
+}
+
+/* Tarjetas de platos seleccionables */
+.tarjeta-plato input[type="checkbox"] {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.tarjeta-plato label {
+    display: block;
+    cursor: pointer;
+}
+
+/* Mensaje cuando no hay datos */
+.mensaje-vacio {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Botón de guardar campañas */
+#guardarCampanaBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#guardarCampanaBtn:hover {
+    background-color: #7851EC;
+    transform: translateY(-2px);
+}
+
+#guardarCampanaBtn:active {
+    transform: translateY(0);
+}
+
+/* Contenedor principal de campañas */
+.campanas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Modal de confirmación */
+.modal-confirmacion {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-confirmacion .modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-confirmacion .modal-content h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.modal-confirmacion .modal-content button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.modal-confirmacion .modal-content .btn-confirmar {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.modal-confirmacion .modal-content .btn-cancelar {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* =================== RESPONSIVO =================== */
+@media (max-width: 768px) {
+    .platillos-section {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .platillos-section,
+    .campanas-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Reduce el tamaño mínimo */
+        gap: 10px; /* Reduce el espaciado entre tarjetas */
+    }
+
+    .tarjeta-platillo,
+    .tarjeta-plato {
+        max-width: 150px; /* Reduce el ancho máximo en pantallas pequeñas */
+    }
+
+    .imagen-platillo,
+    .tarjeta-plato img.imagen-plato {
+        height: 100px; /* Reduce la altura de la imagen */
+    }
+
+    .tarjeta-platillo h3,
+    .tarjeta-plato h3 {
+        font-size: 0.9rem; /* Reduce el tamaño del título */
+    }
+
+    .tarjeta-platillo p,
+    .tarjeta-plato p {
+        font-size: 0.75rem; /* Reduce el tamaño del texto */
+    }
+
+    .tarjeta-platillo button,
+    .tarjeta-plato button {
+        font-size: 0.75rem; /* Reduce el tamaño del botón */
+        padding: 5px 10px; /* Reduce el padding del botón */
+    }
+}
+
+/* Estilo para el layout de gestión */
+.gestion-layout {
+    display: flex;
+    height: 100%; /* Ocupa toda la altura disponible */
+    gap: 20px; /* Espaciado entre botones y formulario */
+}
+
+/* Contenedor de los botones (1/3 del ancho) */
+.gestion-options {
+    flex: 1; /* Ocupa 1/3 del espacio */
+    max-width: 30%; /* Limita el ancho máximo */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Permite desplazamiento si hay muchos botones */
+}
+
+/* Botones dentro de la sección de opciones */
+.gestion-options button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.gestion-options button:hover {
+    background-color: #7851EC;
+}
+
+/* Contenedor del formulario (2/3 del ancho) */
+.formulario {
+    flex: 2; /* Ocupa 2/3 del espacio */
+    max-width: 70%; /* Limita el ancho máximo */
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Permite desplazamiento interno */
+    max-height: 100%; /* Asegura que no exceda la altura disponible */
+}
+
+/* Inputs y botones dentro del formulario */
+.formulario input,
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.formulario button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.formulario button[type="submit"]:hover {
+    background-color: #7851EC;
+}
+
+.filtro-categorias {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filtro-categorias label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.filtro-categorias select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Estilos para los recuadros de categorías */
+.categorias-recuadros {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.categorias-recuadro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.categorias-recuadro:hover {
+    transform: translateY(-5px);
+    background-color: #7851EC;
+    color: white;
+}
+
+.categorias-recuadro img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.categorias-recuadro span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#seleccionarIconoBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Asegúrate de que el botón sea visible */
+}
+
+#seleccionarIconoBtn:hover {
+    background-color: #0056b3;
+}
+
+.list-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.list-container h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.list-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.list-container ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.list-container ul li button {
+    background-color: #ff5f5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list-container ul li button:hover {
+    background-color: #ff3b3b;
+}
+
+/* Estilo para las tarjetas de chefs y categorías */
+.tarjeta-chef, .tarjeta-categoria {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 200px;
+    display: inline-block;
+}
+
+.tarjeta-chef img, .tarjeta-categoria img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.tarjeta-chef h3, .tarjeta-categoria h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tarjeta-chef p, .tarjeta-categoria p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.tarjeta-chef .eliminar-btn, .tarjeta-categoria .eliminar-btn {
+    background-color: #ff5f5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.info-nutricional {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.info-nutricional input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#form-video {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#form-video label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#form-video input,
+#form-video textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#form-video button {
+    padding: 10px 20px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#form-video button:hover {
+    background-color: #7851EC;
+}
+
+/* Estilo para el contenedor de campañas */
+.campanas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajusta el tamaño mínimo */
+    gap: 20px; /* Espaciado entre tarjetas */
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Estilo para cada tarjeta de plato */
+.tarjeta-plato {
+    position: relative;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 250px; /* Limita el ancho máximo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+}
+
+.tarjeta-plato:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del plato */
+.tarjeta-plato img.imagen-plato {
+    width: 100%;
+    height: 150px; /* Ajusta la altura de la imagen */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Contenido de la tarjeta */
+.tarjeta-plato h3 {
+    font-size: 1.2rem; /* Tamaño del título */
+    margin: 10px 0;
+    color: #333;
+    line-height: 1.2;
+    max-height: 2.4em; /* Limita a 2 líneas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2; /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
+}
+
+.tarjeta-plato p {
+    font-size: 0.9rem; /* Tamaño del subtítulo */
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Checkbox */
+.tarjeta-plato input[type="checkbox"] {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: scale(1.3); /* Aumenta el tamaño del checkbox */
+    cursor: pointer;
+}
+
+/* Botón de guardar campaña */
+#guardarCampanaBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#guardarCampanaBtn:hover {
+    background-color: #7851EC;
+    transform: translateY(-2px);
+}
+
+#guardarCampanaBtn:active {
+    transform: translateY(0);
+}
+
+.tarjeta-reserva {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.tarjeta-reserva h3 {
+    margin: 0 0 5px;
+}
+
+.tarjeta-reserva p {
+    margin: 5px 0;
+}
+
+.tarjeta-reserva .eliminar-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.tarjeta-reserva .eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
+/* =================== TARJETAS DE RESERVAS =================== */
+.tarjeta-reserva {
+    border: 1px solid #ddd;
+    padding: 10px; /* Reduce el padding */
+    margin: 10px 0; /* Reduce el margen */
+    border-radius: 8px; /* Bordes más pequeños */
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Reduce el espacio entre los elementos */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    max-width: 300px; /* Limita el ancho máximo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-reserva:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-reserva h3 {
+    margin: 0;
+    font-size: 1rem; /* Reduce el tamaño de la fuente */
+    color: #333;
+    font-weight: bold;
+}
+
+.tarjeta-reserva p {
+    margin: 0;
+    font-size: 0.85rem; /* Reduce el tamaño de la fuente */
+    color: #666;
+    line-height: 1.4;
+}
+
+.tarjeta-reserva .eliminar-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 10px; /* Reduce el tamaño del botón */
+    cursor: pointer;
+    border-radius: 5px; /* Bordes más pequeños */
+    font-size: 0.85rem; /* Reduce el tamaño de la fuente */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tarjeta-reserva .eliminar-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.tarjeta-reserva .eliminar-btn:active {
+    transform: translateY(0);
+}
+
+/* =================== FORMULARIO DE RESERVAS =================== */
+#form-reserva {
+    background-color: #ffffff;
+    padding: 15px; /* Reduce el padding */
+    border-radius: 8px; /* Bordes más pequeños */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 15px; /* Reduce el margen superior */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduce el espacio entre los elementos */
+}
+
+#form-reserva input,
+#form-reserva textarea {
+    width: 100%;
+    padding: 10px; /* Reduce el padding interno */
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Bordes más pequeños */
+    background-color: #f9f9f9;
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#form-reserva input:focus,
+#form-reserva textarea:focus {
+    outline: none;
+    border-color: #5B3CC4;
+    box-shadow: 0 0 5px rgba(91, 60, 196, 0.2);
+    background-color: #fff;
+}
+
+#form-reserva button {
+    padding: 10px 15px; /* Reduce el tamaño del botón */
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px; /* Bordes más pequeños */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#form-reserva button:hover {
+    background-color: #7851EC;
+    transform: translateY(-2px);
+}
+
+#form-reserva button:active {
+    transform: translateY(0);
+}
+
+/* =================== RESPONSIVO =================== */
+@media (max-width: 768px) {
+    .tarjeta-reserva {
+        padding: 10px;
+    }
+
+    .tarjeta-reserva h3 {
+        font-size: 1rem;
+    }
+
+    .tarjeta-reserva p {
+        font-size: 0.85rem;
+    }
+
+    #form-reserva {
+        padding: 10px; /* Reduce el padding en pantallas pequeñas */
+    }
+
+    #form-reserva input,
+    #form-reserva textarea {
+        font-size: 0.85rem; /* Reduce el tamaño de la fuente */
+        padding: 8px; /* Reduce el padding interno */
+    }
+
+    #form-reserva button {
+        font-size: 0.85rem; /* Reduce el tamaño del botón */
+        padding: 8px 12px;
+    }
+
+    .tarjeta-reserva {
+        max-width: 100%; /* Permite que las tarjetas ocupen todo el ancho en pantallas pequeñas */
+    }
+
+    .tarjeta-reserva h3 {
+        font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+    }
+
+    .tarjeta-reserva p {
+        font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+    }
+
+    .tarjeta-reserva .eliminar-btn {
+        font-size: 0.8rem; /* Reduce el tamaño del botón */
+        padding: 6px 8px;
+    }
+
+    .main-content {
+        padding: 10px; /* Reduce el espaciado en pantallas pequeñas */
+    }
+
+    #contenido {
+        padding: 20px; /* Reduce el espaciado interno */
+    }
+
+    .formulario,
+    .list-container {
+        max-height: calc(100vh - 100px); /* Ajusta la altura máxima en pantallas pequeñas */
+    }
+}
+
+.contenedor-chefs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tarjeta-chef {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-chef:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-chef {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.tarjeta-chef h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.tarjeta-chef p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.tarjeta-chef .eliminar-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-chef .eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
+.contenedor-videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tarjeta-video {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.video-preview {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.tarjeta-video .seleccionar-btn,
+.tarjeta-video .eliminar-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-video .seleccionar-btn:hover {
+    background-color: #2980b9;
+}
+
+.tarjeta-video .eliminar-btn {
+    background-color: #e74c3c;
+}
+
+.tarjeta-video .eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
+.contenedor-wallpapers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tarjeta-wallpaper {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-wallpaper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.wallpaper-preview {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.tarjeta-wallpaper .seleccionar-btn,
+.tarjeta-wallpaper .eliminar-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-wallpaper .seleccionar-btn:hover {
+    background-color: #2980b9;
+}
+
+.tarjeta-wallpaper .eliminar-btn {
+    background-color: #e74c3c;
+}
+
+.tarjeta-wallpaper .eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
+.contenedor-categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tarjeta-categoria {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-categoria:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icono-categoria {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.tarjeta-categoria h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.tarjeta-categoria .eliminar-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-categoria .eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
+.contenedor-categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tarjeta-categoria {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-categoria:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icono-categoria {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.tarjeta-categoria h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.tarjeta-categoria .eliminar-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-categoria .eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
+/* =================== TARJETAS =================== */
+.tarjeta {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.tarjeta h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tarjeta p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.tarjeta .btn {
+    background-color: #5B3CC4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta .btn:hover {
+    background-color: #7851EC;
+}
+
+.tarjeta .btn.eliminar {
+    background-color: #e74c3c;
+}
+
+.tarjeta .btn.eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* =================== MODAL =================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+    color: #5B3CC4;
+    margin-bottom: 20px;
+}
+
+.modal-content img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #e74c3c;
+}
+
+/* =================== RESPONSIVO =================== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .tarjeta {
+        padding: 15px;
+    }
+
+    .tarjeta img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+/* Estilo para el contenedor del QR */
+.qr-code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón para descargar el QR */
+.qr-code-container button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.qr-code-container button:hover {
+    background-color: #7851EC;
+}
+
+
+#qrCodeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#qrCodeContainer input {
+    font-size: 1rem;
+    text-align: center;
+}
+
+#qrCodeContainer button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#qrCodeContainer button:hover {
+    background-color: #7851EC;
+}
+#qrCodeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#qrCodeContainer input {
+    font-size: 1rem;
+    text-align: center;
+}
+
+#qrCodeContainer button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #5B3CC4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#qrCodeContainer button:hover {
+    background-color: #7851EC;
+}
